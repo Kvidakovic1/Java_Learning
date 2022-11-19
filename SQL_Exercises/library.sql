@@ -29,7 +29,7 @@ create table publisher(
 
 create table book(
     book_id int not null primary key auto_increment,
-    pub_id int,
+    publisher int,
     type varchar (20),
     price decimal(18,2),
     title char(80) not null
@@ -43,5 +43,10 @@ create table book_loans(
     date_out datetime,
     due_date datetime
 );
+
+alter table book_loans add foreign key (member) references member(card_no);
+alter table book_loans add foreign key (book) references book(book_id);
+alter table book_loans add foreign key (employee) references employee(emp_id);
+alter table book add foreign key (publisher) references publisher(pub_id);
 
 
