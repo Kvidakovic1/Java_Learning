@@ -22,3 +22,24 @@ create table racuni_ugovori(
     datum_otvaranja_racuna datetime,
     datum_zatvaranja_racuna datetime
 );
+
+create table djelatnik(
+    sifra_djelatnika int not null primary key auto_increment,
+    ime varchar(30),
+    prezime varchar(30),
+    sifra_poslovnice int
+);
+
+create table djelatnik_povijest(
+    sifra_djelatnika int,
+    ime varchar(30),
+    prezime varchar(30),
+    sifra_poslovnice int,
+    vrijedi_od datetime,
+    vrijedi_do datetime
+);
+
+alter table racuni_ugovori add foreign key (sifra_klijenta) references klijent(sifra_klijenta);
+alter table racuni_ugovori add foreign key (sifra_djelatnika) references djelatnik(sifra_djelatnika);
+alter table djelatnik add foreign key (sifra_poslovnice) references poslovnica(sifra_poslovnice);
+alter table djelatnik_povijest add foreign key (sifra_poslovnice) references poslovnica(sifra_poslovnice);
