@@ -38,3 +38,15 @@ alter table radionica_dijete add foreign key(radionica) references radionica(sif
 alter table radionica_dijete add foreign key(dijete) references dijete(sifra);
 
 
+insert into dijete(sifra,ime,prezime,oib,starost)
+values(null,'Klara','Greman','98761132104', 7),
+(null,'Patrik','Blazević','99020828277', 8),
+(null,'Jasmina','Ronta','71655029395', 9);
+
+insert into uciteljica (sifra,ime,prezime,oib,email)
+values(null,'Tanja','Vedernjak','61690165112','tanjavedernjak@gmail.com'),
+(null,'Lucija', 'Begonja', '07317766831', 'lbegonja@hotmail.com');
+
+
+insert into radionica_dijete (radionica,dijete)
+values(1,1),(1,2),(1,3);
