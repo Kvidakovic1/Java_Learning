@@ -21,10 +21,36 @@ create table kolegij(
 
 create table rok(
     sifra int not null primary key auto_increment,
-    student int,
+    datum datetime,
+    max_studenata int,
     kolegij int
 );
 
-alter table rok add foreign key (student) references student(sifra);
-alter table rok add foreign key (kolegij) references kolegij(sifra);
+create table student_rok(
+    rok int,
+    student int
+);
 
+
+
+alter table rok add foreign key (kolegij) references kolegij(sifra);
+alter table student_rok add foreign key (rok) references rok(sifra);
+alter table student_rok add foreign key (student) references student(sifra);
+
+
+insert into kolegij(sifra,naziv,broj_ects)
+values(null,'Osnove elektronike', 12),
+(null,'Matematika 1', 10),
+(null,'Programiranje 1',10);
+
+insert into student(sifra, ime, prezime,oib,status)
+values(null,'Josip','Duzel','11997157298', 'redovan'),
+(null,'Ivor','Kakuk','52278198071','izvanredan'),
+(null, 'Franjo','Sučić','36398442827','redovan');
+
+insert into rok(sifra, datum,max_studenata,kolegij)
+values(null,'2022-11-22 16:00:00',20,1),
+(null,'2022-12-20 16:00:00',20,1);
+
+insert into student_rok(rok,student)
+values(1,1),(1,2);
