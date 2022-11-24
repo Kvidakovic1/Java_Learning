@@ -7,6 +7,7 @@ use muzej;
 create table izlozba(
     sifra int not null primary key auto_increment,
     naziv varchar(80),
+    iznos decimal(18,2)
     sponzor int,
     kustos int    
 );
@@ -29,10 +30,20 @@ create table djelo(
 
 create table sponzor(
     sifra int not null primary key auto_increment,
-    naziv varchar(80),
-    iznos decimal(18,2)         
+    naziv varchar(80)
+             
+);
+
+create table izlozba_djelo(
+    djelo int,
+    izlozba int
 );
 
 alter table izlozba add foreign key (kustos) references kustos(sifra);
 alter table izlozba add foreign key (sponzor) references sponzor(sifra);
 alter table djelo add foreign key (izlozba) references izlozba(sifra);
+
+alter table izlozba_djelo add foreign key (izlozba) references izlozba(sifra);
+alter table izlozba_djelo add foreign key (djelo) references djelo(sifra);
+
+
