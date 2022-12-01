@@ -136,5 +136,5 @@ order by 3 desc;
 
 select a.haljina, a.maraka 
 from sestra a
-inner join sestra_svekar b on a.sifra = b.sestra
-where a.sifra != b.sestra;
+left join sestra_svekar b on a.sifra = b.sestra
+where b.sestra is null;
