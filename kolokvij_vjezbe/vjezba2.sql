@@ -132,5 +132,5 @@ order by 3 desc ;
 
 select a.vesta , a.asocijalno 
 from decko a 
-inner join decko_zarucnica b on b.decko = a.sifra 
-where a.sifra != b.decko 
+left  join decko_zarucnica b on b.decko = a.sifra 
+where b.sifra is null; 
