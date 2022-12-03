@@ -71,7 +71,7 @@ create table sestra_svekar(
 create table svekar(
     sifra int not null primary key auto_increment,
     bojaociju varchar(40) not null,
-    prstean int,
+    prstena int,
     dukserica varchar(41),
     lipa decimal(13,8),
     eura decimal(12,7),
