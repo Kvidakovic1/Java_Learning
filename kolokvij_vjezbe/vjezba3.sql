@@ -73,3 +73,60 @@ create table punica(
     vesta varchar(32) not null,
     snasa int
 );
+
+alter table svekar add foreign key (cura) references cura(sifra);
+alter table prijatelj_brat add foreign key (brat) references brat(sifra);
+alter table prijatelj_brat add foreign key (prijatelj) references prijatelj(sifra);
+alter table ostavljena add foreign key (prijatelj) references prijatelj(sifra);
+alter table snasa add foreign key (ostavljena) references ostavljena(sifra);
+alter table punica add foreign key (snasa) references snasa(sifra);
+
+
+insert into brat(ogrlica, ekstrovertno)
+values(13,1),(10,1),(11,0);
+
+insert into prijatelj(indiferentno)
+values(1),(1),(0);
+
+insert into prijatelj_brat (prijatelj, brat)
+values(1,1),(2,2),(1,2);
+
+insert into ostavljena(modelnaocala)
+values('okrugle'),('plave'),('cetvrtaste');
+
+insert into snasa(kuna,eura,ostavljena)
+values(14.5,2.1,1),(21.2,3.3,2),(40.2,4.3,1);
+
+insert into cura(ogrlica)
+values(1),(2),(3);
+
+insert into svekar(novcica,suknja,narukvica,cura)
+values(10.2,'plava',6,1),(15.2,'zelena',6,2),(14.2,'crna',6,3);
+
+update svekar set suknja='Osijek';
+
+delete from punica where kratkamajica = 'AB';
+
+select majica from ostavljena 
+where lipa!=9 and 
+lipa!=10 and 
+lipa!=20 and 
+lipa!=30 and
+lipa!=35;
+
+select  a.ekstrovertno , f.vesta , e.kuna 
+from  brat a
+inner join prijatelj_brat b on a.sifra =b.brat 
+inner join prijatelj c on c.sifra =b.prijatelj 
+inner join ostavljena d on d.prijatelj=d.sifra 
+inner join snasa e on d.sifra=e.ostavljena 
+inner join punica f on f.snasa=e.sifra 
+where 
+d.lipa !=91 and c.haljina like '%ba%'
+order by e.kuna desc ;
+
+
+select a.haljina, a.lipa 
+from prijatelj a 
+left join prijatelj_brat b on a.sifra=b.brat 
+where b.sifra is null 
