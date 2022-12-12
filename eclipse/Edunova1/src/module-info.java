@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author Kristijan
+ *
+ */
+module edunova {
+}
