@@ -77,3 +77,44 @@ alter table punac add foreign key (svekar) references svekar (sifra);
 alter table punica add foreign key(punac) references punac(sifra);
 alter table ostavljena add foreign key(punica) references punica (sifra);
 alter table mladic add foreign key(zarucnik) references zarucnik(sifra); 
+
+
+insert into svekar (carape,eura)
+values('vunene',12.5),('platnene',14.6),('karirane',19.2);
+
+insert into cura (carape,maraka,vesta)
+values ('vunene',24.2,'plava'),('crne',55.5,'siva'),
+('strikane',11.2,'zelena');
+
+insert into svekar_cura (svekar,cura)
+values(1,1),(2,2),(3,3);
+
+insert into punac (prviputa,svekar )
+values(1999,1),(2005,2),(1947,3);
+
+insert into punica (hlace,nausnica,vesta,modelnaocala,treciputa,punac)
+values ('svilene',2,'plava','siva',1999,1),('zelena',32,'plava','kvalitetan',1989,2),('modra',23,'lijevane','prada',2019,3);
+
+update mladic set haljina='Osijek'
+where sifra is not null;
+
+delete from ostavljena 
+where ogrlica = 17;
+
+select majica from punac 
+where prviputa is null ;
+
+select f.asocijalno , a.stilfrizura , b.nausnica 
+from ostavljena a
+inner join punica b on b.sifra=a.punica 
+inner join punac c on c.sifra=b.punac 
+inner join svekar d on d.sifra =c.svekar 
+inner join svekar_cura e on e.svekar=d.sifra 
+inner join cura f on f.sifra =e.cura 
+where c.prviputa is not null and d.majica like ('%ba%') 
+order by b.nausnica desc ;
+
+select a.majica , a.carape 
+from svekar a
+left join svekar_cura b on a.sifra =b.svekar 
+where b.sifra is null ;
