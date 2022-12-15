@@ -1,3 +1,4 @@
+# c:\xampp\mysql\bin\mysql -uroot --default_character_set=utf8 < E:\Java\Java_Learning\kolokvij_vjezbe\vjezba5.sql
 drop database if exists vjezba5;
 create database vjezba5;
 
