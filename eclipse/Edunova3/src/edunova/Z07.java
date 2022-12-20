@@ -9,17 +9,16 @@ public class Z07 {
 		// Ako su oba broja parni
 		// ispisuje njihov zbroj
 		// inače ispisuje njihovu razliku
-	
+
 		int a = Integer.parseInt(JOptionPane.showInputDialog("Unesite prvi broj"));
 		int b = Integer.parseInt(JOptionPane.showInputDialog("Unesite drugi broj"));
-		
-		if(a%2 == 0 && b%2 == 0) {
-			System.out.println(a+b);
-		}else {
-			System.out.println(a-b);
+
+		if (a % 2 == 0 && b % 2 == 0) {
+			System.out.println(a + b);
+		} else {
+			System.out.println(a - b);
 		}
-	
+
 	}
-	
 
 }
