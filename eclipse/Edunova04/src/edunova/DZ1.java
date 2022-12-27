@@ -5,11 +5,9 @@ import javax.swing.JOptionPane;
 public class DZ1 {
 
 	public static void main(String[] args) {
-		
+
 		String ime = JOptionPane.showInputDialog("Tko je napravio tablicu?");
-		
-		
-		
+
 		System.out.println("-------------------------------");
 		System.out.println(": : :  TABLICA  MNOZENJA  : : :");
 		System.out.println("-------------------------------");
@@ -34,11 +32,19 @@ public class DZ1 {
 				}
 
 			}
-			if(i==9) {
+			if (i == 9) {
 				System.out.println();
-				System.out.println("-------------------------------");
+				for (int k = 0; k < 31; k++) {
+					System.out.print("-");
+				}
+				System.out.println();
+				
 				System.out.println(":  :  :  :  :  :   :by " + ime);
-				System.out.println("-------------------------------");
+				
+				for (int k = 0; k < 31; k++) {
+					System.out.print("-");
+				}
+
 			}
 			System.out.println();
 		}
