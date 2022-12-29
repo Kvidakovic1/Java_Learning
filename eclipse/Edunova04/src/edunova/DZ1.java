@@ -39,7 +39,41 @@ public class DZ1 {
 				}
 				System.out.println();
 				
-				System.out.println(":  :  :  :  :  :   :by " + ime);
+				switch(ime.length()) {
+					case 2:
+					System.out.println(":  :  :  :  :  :   :  :  :by " + ime);
+					break;
+					
+					case 3:
+						System.out.println(":  :  :  :  :  :   :  :  by " + ime);
+						break;
+						
+					case 4:
+						System.out.println(":  :  :  :  :  :   :  : by " + ime);
+						break;
+					case 5:
+						System.out.println(":  :  :  :  :  :   :  :by " + ime);
+						break;
+					case 6:
+						System.out.println(":  :  :  :  :  :   :  by " + ime);
+						break;	
+					case 7:
+						System.out.println(":  :  :  :  :  :   : by " + ime);
+						break;
+					case 8:
+						System.out.println(":  :  :  :  :  :   :by " + ime);
+						break;
+					case 9:
+						System.out.println(":  :  :  :  :  :   by " + ime);
+						break;
+					case 10:
+						System.out.println(":  :  :  :  :  :  by " + ime);
+						break;
+					case 11:
+						System.out.println(":  :  :  :  :  : by " + ime);
+						break;		
+				}
+				
 				
 				for (int k = 0; k < 31; k++) {
 					System.out.print("-");
