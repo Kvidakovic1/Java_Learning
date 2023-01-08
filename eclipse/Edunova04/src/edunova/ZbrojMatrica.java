@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 public class ZbrojMatrica {
 
 	public static void main(String[] args) {
-		// Keirati program koji unosi dvije matrice 4x4 te ispisuje njihov zbroj
+		// Keirati program koji unosi dvije matrice 4x4 te ispisuje njihov zbroj 
 
 		int matrica1[][] = new int[4][4];
 		int matrica2[][] = new int[4][4];
