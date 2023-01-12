@@ -2,9 +2,10 @@ package edunova;
 
 public class TestiranjeMetoda {
 	public static void main(String[] args) {
-		double a = 3.14;
-		//double b = a / 10;
-		System.out.println(a-Math.floor(a));
+
+		System.out.println(Z05.decimalno(2.78, 0.30));
+		
+		
 		
 	}
 }
