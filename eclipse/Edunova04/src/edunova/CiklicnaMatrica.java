@@ -1,52 +1,60 @@
 package edunova;
 
+import javax.swing.JOptionPane;
+
 public class CiklicnaMatrica {
 
 	public static void main(String[] args) {
 		// Kreirati program koji ispisuje cikličnu matricu
-		// Pocevsi od dolje desno 
+		// Pocevsi od dolje desno
 
 		int broj = 1;
+		int m = Integer.parseInt(JOptionPane.showInputDialog("Unesi broj redova"));
+		int n = Integer.parseInt(JOptionPane.showInputDialog("Unesi broj stupaca"));
 
-		int k = 0;
-		int m = 3;
-		int l = 0;
-		int n = 3;
+		int pocRed = 0;
+		int krajRed = m ;
+		int pocStupac = 0;
+		int krajStupac = n;
 		int matrica[][] = new int[m][n];
 
-		while (k < m && l < n) {
-			for (int i = l; i < n; ++i) {
-				matrica[k][i] = broj++;
+		while (pocRed < krajRed && pocStupac < krajStupac) {
+			// Print the first row from the remaining rows
+
+			for (int i = pocStupac; i < krajStupac; ++i) {
+				matrica[pocRed][i] = broj++;
 
 			}
-			k++;
+			pocRed++;
 
-			for (int i = k; i < m; ++i) {
-				matrica[i][n - 1] = broj++;
+			// Print the last column from the remaining columns
+
+			for (int i = pocRed; i < krajRed; ++i) {
+				matrica[i][krajStupac - 1] = broj++;
 
 			}
-			n--;
+			krajStupac--;
 
-			if (k < m) {
-				for (int i = n - 1; i >= 1; --i) {
-					matrica[m - 1][i] = broj++;
+			// Print the last row from the remaining rows
+
+			if (pocRed < krajRed) {
+				for (int i = krajStupac - 1; i >= pocStupac; --i) {
+					matrica[krajRed - 1][i] = broj++;
 
 				}
-				m--;
-
+				krajRed--;
 			}
-			if (l < n) {
-				for (int i = m - 1; i >= k; --i) {
-					matrica[i][l] = broj++;
-
+			// Print the first column from the remaining colums
+			if (pocStupac < krajStupac) {
+				for (int i = krajRed - 1; i >= pocRed; --i) {
+					matrica[i][pocStupac] = broj++;
+					
 				}
-				l++;
-
+				pocStupac++;
 			}
 		}
 
-		m = 3;
-		n = 3;
+		
 
 		for (int i = 0; i < m; i++) {
 			for (int j = 0; j < n; j++) {
