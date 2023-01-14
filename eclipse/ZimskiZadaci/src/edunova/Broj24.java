@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 import javax.swing.JOptionPane;
 
-public class Z03_24Broja {
+public class Broj24 {
 
 	public static void main(String[] args) {
 		// Kreirati program koji unosi 24 broja, ispisuje njihov zbroj, najmanji i
