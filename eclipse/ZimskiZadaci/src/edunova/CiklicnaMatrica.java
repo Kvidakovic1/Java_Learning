@@ -18,7 +18,7 @@ public class CiklicnaMatrica {
 		int matrica[][] = new int[m][n];
 
 		while (pocRed < krajRed && pocStupac < krajStupac) {
-			// Print the first row from the remaining rows
+			// Ispisati prvi red 
 
 			for (int i = pocStupac; i < krajStupac; ++i) {
 				matrica[pocRed][i] = broj++;
@@ -26,7 +26,7 @@ public class CiklicnaMatrica {
 			}
 			pocRed++;
 
-			// Print the last column from the remaining columns
+			// Ispisati zadnji stupac
 
 			for (int i = pocRed; i < krajRed; ++i) {
 				matrica[i][krajStupac - 1] = broj++;
@@ -34,7 +34,7 @@ public class CiklicnaMatrica {
 			}
 			krajStupac--;
 
-			// Print the last row from the remaining rows
+			// Ispisati zadnji red
 
 			if (pocRed < krajRed) {
 				for (int i = krajStupac - 1; i >= pocStupac; --i) {
@@ -43,7 +43,7 @@ public class CiklicnaMatrica {
 				}
 				krajRed--;
 			}
-			// Print the first column from the remaining colums
+			// Ispisati prvi stupac
 			if (pocStupac < krajStupac) {
 				for (int i = krajRed - 1; i >= pocRed; --i) {
 					matrica[i][pocStupac] = broj++;
