@@ -28,6 +28,7 @@ public class TestMetode {
 	}
 
 	public static int zbroj(int broj) {
+		
 		// uvjet prekida rekurzije
 		if (broj == 1) {
 			return 1;
